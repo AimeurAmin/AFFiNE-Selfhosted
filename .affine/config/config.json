@@ -3,7 +3,8 @@
   "server": {
     "name": "AFFiNE",
     "host": "affine.aimamin.com",
-    "https": true
+    "https": true,
+    "externalUrl": "https://affine.aimamin.com"
   },
   "auth": {
     "allowSignup": true,
