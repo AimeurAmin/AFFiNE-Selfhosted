@@ -50,10 +50,14 @@ services:
       - affine_internal
 
   redis:
-    image: redis
+    image: redis:7-alpine
     container_name: affine_redis
+    command: redis-server --dir /data --appendonly yes
+    volumes:
+      - redis_data:/data
+    working_dir: /data
     healthcheck:
-      test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
+      test: ['CMD', 'redis-cli', 'ping']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -81,6 +85,9 @@ services:
     restart: unless-stopped
     networks:
       - affine_internal
+
+volumes:
+  redis_data:
 
 networks:
   dokploy-network:
