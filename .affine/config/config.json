@@ -19,5 +19,8 @@
       "password": "${MAILER_PASSWORD}",
       "sender": "${MAILER_SENDER}"
     }
+  },
+  "flags": {
+    "allowGuestDemoWorkspace": false
   }
 }
